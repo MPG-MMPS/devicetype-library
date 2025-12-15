@@ -283,6 +283,13 @@ def validate_components(component_types, device_or_module):
                 if poe_type_present and not poe_mode_present:
                     device_or_module.failureMessage = f'{device_or_module.file_path} has "poe_type" defined in an interface without a matching "poe_mode".'
                     return False
+                
+                # Enabled field validation for interfaces
+                if "enabled" in component:
+                    enabled_value = component["enabled"]
+                    if not isinstance(enabled_value, bool):
+                        device_or_module.failureMessage = f'{device_or_module.file_path} has "enabled" field in interface "{name}" that is not a boolean value.'
+                        return False
 
         # Adding check for duplicate positions within a component type
         # Stems from https://github.com/netbox-community/devicetype-library/pull/1586
