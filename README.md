@@ -218,6 +218,7 @@ Interfaces in NetBox represent network interfaces used to exchange data with con
 - `name`: Name
 - `label`: Label
 - `type`: Interface type slug (Array)
+- `enabled`: A boolean which indicates whether this interface is enabled (default: true)
 - `mgmt_only`: A boolean which indicates whether this interface is used for management purposes only (default: false)
 - `poe_mode` : For if a device is POE powered (pd) or provides POE (pse)
 - `poe_type` : The classification of PoE transmission supported, for PoE-enabled interfaces.
